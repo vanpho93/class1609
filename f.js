@@ -23,12 +23,22 @@ function getBigArrNum(arrNumbers) {
 }
 
 function getOldPeople(arrPerson) {
-    //return mang cua cac phan tu co tuoi > 12
     const arrOutput = [];
     for (let i = 0; i < arrPerson.length; i++) {
-        if (arrPerson[i].age > 2) arrOutput.push(arrPerson[i]);
+        if (arrPerson[i].age > 12) arrOutput.push(arrPerson[i]);
     }
     return arrOutput;
 }
 
-console.log(getBigArrNum(numbers))
+function myFilter(arr, checkElement) {
+    const arrOutput = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (checkElement(arr[i])) arrOutput.push(arr[i]);
+    }
+    return arrOutput;
+}
+
+console.log(myFilter(numbers, e => e > 2));
+console.log(myFilter(people, person => person.age > 12));
+
+// console.log(getBigArrNum(numbers))
